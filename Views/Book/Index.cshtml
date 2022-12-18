@@ -1,0 +1,46 @@
+﻿@model List<BookViewModel>
+
+@{ 
+    ViewData["Title"] = "Book Details";
+}
+<h3>@ViewData["Title"]</h3>
+<hr />
+<form>
+    <button asp-action="Create" asp-controller="Book">Create Book</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Img_url</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Publisher</th>
+                <th>Series</th>
+                <th>Year</th>
+                <th>Pages</th>
+                <th>Cover</th>
+                <th>Shop_url</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var book in Model)
+                {
+            <tr>
+                <td><img src="@book.Img_url"></td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Publisher</td>
+                <td>@book.Year</td>
+                <td>@book.Series</td>
+                <td>@book.Pages</td>
+                <td>@book.Price</td>
+                <td>@book.Cover</td>
+                <td>@book.Shop_url</td>
+            </tr>
+                }
+            }
+        </tbody>
+    </table>
+</form>
