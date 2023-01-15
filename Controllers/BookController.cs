@@ -1,4 +1,5 @@
 ﻿using ebooklist.Data;
+using ebooklist.Entieties;
 using ebooklist.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,11 +17,13 @@ namespace ebooklist.Controllers
             this._context = context;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? pageNumber)
         {
-            var books = _context.Books.ToList();
-            List<BookViewModel> bookList = new List<BookViewModel>();
-
+            var books = from b in _context.Books
+                        select b;
+            // var books = _context.Books.ToList();
+            // List<BookViewModel> bookList = new List<BookViewModel>();
+            /*
             if (books != null)
             {
                 foreach(var book in books)
@@ -30,10 +33,10 @@ namespace ebooklist.Controllers
                         ISBN13 = book.ISBN13,
                         ISBN10 = book.ISBN10,
                         Title = book.Title,
-                        Author = book.Author,
+                        Authors = book.Authors,
                         Subtitle = book.Subtitle,
                         Categories = book.Categories,
-                        Tumbnail = book.Tumbnail,
+                        Thumbnail = book.Thumbnail,
                         Description = book.Description,
                         Published_year = book.Published_year,
                         Average_rating = book.Average_rating,
@@ -42,8 +45,30 @@ namespace ebooklist.Controllers
                     };
                     bookList.Add(BookViewModel);
                 }
+            }*/
+
+            ViewBag.Data = books.ToList().Take(10);
+            int pageSize = 50;
+            return View(await PaginatedList<Book>.CreateAsync(books, pageNumber ?? 1, pageSize));
+//  return View(bookList);
+        }
+
+        [HttpGet]
+        public IActionResult Details(string id = null)
+        {
+            if (id == null)
+            {
+                return NotFound();
             }
-            return View(bookList);
+
+            var book = _context.Books
+                .FirstOrDefault(m => m.ISBN13 == id);
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+            return View(book);
         }
     }
 }
