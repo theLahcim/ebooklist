@@ -10,16 +10,18 @@
     <table>
         <thead>
             <tr>
-                <th>Img_url</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Price</th>
-                <th>Publisher</th>
-                <th>Series</th>
-                <th>Year</th>
-                <th>Pages</th>
                 <th>Cover</th>
-                <th>Shop_url</th>
+                <th>ISBN13</th>
+                <th>ISBN10</th>
+                <th>Title</th>
+                <th>Subtitle</th>
+                <th>Author</th>
+                <th>Categories</th>
+                <th>Description</th>
+                <th>Published_year</th>
+                <th>Num_pages</th>
+                <th>Average_rating</th>
+                <th>Ratings_count</th>
             </tr>
         </thead>
         <tbody>
@@ -28,16 +30,18 @@
                 @foreach (var book in Model)
                 {
             <tr>
-                <td><img src="@book.Img_url"></td>
+                <td><img src="@book.Tumbnail"></td>
+                <td>@book.ISBN13</td>
+                <td>@book.ISBN10</td>
                 <td>@book.Title</td>
                 <td>@book.Author</td>
-                <td>@book.Publisher</td>
-                <td>@book.Year</td>
-                <td>@book.Series</td>
-                <td>@book.Pages</td>
-                <td>@book.Price</td>
-                <td>@book.Cover</td>
-                <td>@book.Shop_url</td>
+                <td>@book.Subtitle</td>
+                <td>@book.Categories</td>
+                <td>@book.Description</td>
+                <td>@book.Published_year</td>
+                <td>@book.Num_pages</td>
+                <td>@book.Average_rating</td>
+                <td>@book.Ratings_count</td>
             </tr>
                 }
             }

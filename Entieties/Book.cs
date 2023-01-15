@@ -8,16 +8,18 @@ namespace ebooklist.Entieties
 {
     public class Book
     {
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public float Price { get; set; }
-        public string Publisher { get; set; }
-        public string Series { get; set; }
-        public int Year { get; set; }
-        public int Pages { get; set; }
-        public string Cover { get; set; }
         [Key]
-        public string Shop_url { get; set; }
-        public string Img_url { get; set; }
+        public int ISBN13 { get; set; }
+        public int ISBN10 { get; set; }
+        public string Title { get; set; }
+        public string Subtitle { get; set; }
+        public string Author { get; set; }
+        public string Categories { get; set; }
+        public string Tumbnail { get; set; }
+        public string Description { get; set; }
+        public int Published_year { get; set; }
+        public float Average_rating { get; set; }
+        public int Num_pages { get; set; }
+        public int Ratings_count { get; set; }
     }
 }
