@@ -1,0 +1,60 @@
+﻿@model PaginatedList<ebooklist.Entieties.Book>
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+<h3>@ViewData["Title"]</h3>
+<hr />
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+<form>
+    <button asp-action="Create" asp-controller="Book">Create Book</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Cover</th>
+                <th>ISBN13</th>
+                <th>Title</th>
+                <th>Authors</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td><img src="@book.Thumbnail"></td>
+                        <td>@book.ISBN13</td>
+                        <td>@book.Title</td>
+                        <td>@book.Authors</td>
+                    <td>@Html.ActionLink("Details", "Details", new { id = book.ISBN13 }) </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</form>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
