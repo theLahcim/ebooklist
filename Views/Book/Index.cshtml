@@ -5,6 +5,15 @@
 }
 <h3>@ViewData["Title"]</h3>
 <hr />
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
 <form>
     <button asp-action="Create" asp-controller="Book">Create Book</button>
     <table>
@@ -12,16 +21,8 @@
             <tr>
                 <th>Cover</th>
                 <th>ISBN13</th>
-                @*<th>ISBN10</th>*@
                 <th>Title</th>
-                @*<th>Subtitle</th>*@
                 <th>Authors</th>
-                @*<th>Categories</th>
-                <th>Description</th>
-                <th>Published_year</th>
-                <th>Num_pages</th>
-                <th>Average_rating</th>
-                <th>Ratings_count</th>*@
                 <th></th>
             </tr>
         </thead>
@@ -33,16 +34,8 @@
                     <tr>
                         <td><img src="@book.Thumbnail"></td>
                         <td>@book.ISBN13</td>
-                        @*<td>@book.ISBN10</td>*@
                         <td>@book.Title</td>
-                        @*<td>@book.Subtitle</td>*@
                         <td>@book.Authors</td>
-                        @*<td>@book.Categories</td>
-                        <td>@book.Description</td>
-                        <td>@book.Published_year</td>
-                        <td>@book.Num_pages</td>
-                        <td>@book.Average_rating</td>
-                        <td>@book.Ratings_count</td>*@
                     <td>@Html.ActionLink("Details", "Details", new { id = book.ISBN13 }) </td>
                     </tr>
                 }

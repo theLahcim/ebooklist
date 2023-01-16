@@ -15,42 +15,22 @@ namespace ebooklist.Controllers
         public BookController(ApplicationDbContext context)
         {
             this._context = context;
-        }
+        }https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page/_static/filtering.png?view=aspnetcore-6.0
         [HttpGet]
-        public async Task<IActionResult> Index(int? pageNumber)
+        public async Task<IActionResult> Index(int? pageNumber, string searchString)
         {
+            ViewData["CurrentFilter"] = searchString;
             var books = from b in _context.Books
                         select b;
-            // var books = _context.Books.ToList();
-            // List<BookViewModel> bookList = new List<BookViewModel>();
-            /*
-            if (books != null)
+            if (!String.IsNullOrEmpty(searchString))
             {
-                foreach(var book in books)
-                {
-                    var BookViewModel = new BookViewModel()
-                    {
-                        ISBN13 = book.ISBN13,
-                        ISBN10 = book.ISBN10,
-                        Title = book.Title,
-                        Authors = book.Authors,
-                        Subtitle = book.Subtitle,
-                        Categories = book.Categories,
-                        Thumbnail = book.Thumbnail,
-                        Description = book.Description,
-                        Published_year = book.Published_year,
-                        Average_rating = book.Average_rating,
-                        Num_pages = book.Num_pages,
-                        Ratings_count = book.Ratings_count
-                    };
-                    bookList.Add(BookViewModel);
-                }
-            }*/
+                books = books.Where(b => b.Title.Contains(searchString)
+                                       || b.Authors.Contains(searchString));
+            }
 
             ViewBag.Data = books.ToList().Take(10);
             int pageSize = 50;
             return View(await PaginatedList<Book>.CreateAsync(books, pageNumber ?? 1, pageSize));
-//  return View(bookList);
         }
 
         [HttpGet]
