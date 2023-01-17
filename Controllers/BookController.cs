@@ -15,7 +15,7 @@ namespace ebooklist.Controllers
         public BookController(ApplicationDbContext context)
         {
             this._context = context;
-        }https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page/_static/filtering.png?view=aspnetcore-6.0
+        }
         [HttpGet]
         public async Task<IActionResult> Index(int? pageNumber, string searchString)
         {
