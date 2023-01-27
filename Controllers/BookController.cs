@@ -1,5 +1,5 @@
 ﻿using ebooklist.Data;
-using ebooklist.Entieties;
+using ebooklist.Entities;
 using ebooklist.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
