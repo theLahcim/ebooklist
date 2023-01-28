@@ -1,15 +1,31 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+@import url(http://fonts.googleapis.com/css?family=Advent+Pro&subset=latin,latin-ext);
+
 /* Header */
-.topSeparator {
-  height: 30px;
-  background-color: #A5B2B7;
+.navbar-brand {
+font-size: 30px;
+font-family: 'Cinzel Decorative';
+color: #645757 !important;
 }
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+}
+
+.topSeparator {
+  height: 30px;
+  background-color: #A5B2B7;
+}
+
+nav {
+  background-color: #F9EFEF !important;
+  padding-bottom: 0 !important;
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 
 .nav2-item {
@@ -24,12 +40,6 @@ a.navbar-brand {
   border-bottom: 2px #BEABA5 solid ;
 }
 
-
-nav {
-  background-color: #F9EFEF !important;
-  padding-bottom: 0 !important;
-}
-
 hr.solid {
   border-top: 2px solid #CEC4C1;
 }
@@ -41,35 +51,6 @@ body {
   background-color: #F9EFEF !important;
 }
 
-.content{
-  display: flex;
-  gap: 50px;
-  max-height: 180px;
-  padding-top: 30px;
-  padding-right: 50px;
-
-  background-color: #CEC4C1; 
-}
-
-.bookCover {
-  border: 20px #F9EFEF solid;
-  width: 140px;
-  height: 209px;
-}
-
-.contentHeader {
-  vertical-align: middle;
-  align-self: center;
-  margin: auto;
-  justify-content: center;
-
-  font-size: 10px;
-  font-family: arial;
-  letter-spacing: 2px;
-  color:#645757;
-}
-
-/* Provide sufficient contrast against white background */
 a {
   color: #645757;
 }
@@ -91,8 +72,7 @@ a:hover {
   border-color: #1861ac;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+
 html {
   font-size: 14px;
 }
@@ -118,8 +98,6 @@ button.accept-policy {
   line-height: inherit;
 }
 
-
-
 /* Footer
 -------------------------------------------------- */
 html {
@@ -135,7 +113,6 @@ html {
   white-space: nowrap;
   background-color: #A5B2B7;
   color: #fff !important;
-  font-family: 'verdana';
   line-height: 60px; /* Vertically center the text there */
 }
 
