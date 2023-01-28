@@ -219,7 +219,7 @@ namespace ebooklist.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ebooklist.Entieties.Book", b =>
+            modelBuilder.Entity("ebooklist.Entities.Book", b =>
                 {
                     b.Property<string>("ISBN13")
                         .HasColumnType("nvarchar(450)");

@@ -10,7 +10,7 @@ using ebooklist.Data;
 namespace ebooklist.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230115185614_Initial")]
+    [Migration("20230128191157_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -221,7 +221,7 @@ namespace ebooklist.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ebooklist.Entieties.Book", b =>
+            modelBuilder.Entity("ebooklist.Entities.Book", b =>
                 {
                     b.Property<string>("ISBN13")
                         .HasColumnType("nvarchar(450)");
