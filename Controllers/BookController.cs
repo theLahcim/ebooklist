@@ -14,8 +14,6 @@ namespace ebooklist.Controllers
         private readonly ApplicationDbContext _context;
         public BookController(ApplicationDbContext context)
         {
-            if (context == null)
-                throw new ArgumentNullException(nameof(context));
             this._context = context;
         }
         [HttpGet]
