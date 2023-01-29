@@ -24,7 +24,7 @@
                 <div><img class="bookCover" src="@book.Thumbnail" /></div>
                 <div class="book_container">
                     <div class="book_author_title">
-                        <a class="details_link" href="@Url.Action("Details", "Book", new { id = book.ISBN13 })">
+                        <a href="@Url.Action("Details", "Book", new { id = book.ISBN13 })">
                             <p class="title">@book.Title</p>
                         </a>
                         <p class="author">@book.Authors</p>

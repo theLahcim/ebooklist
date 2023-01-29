@@ -41,17 +41,14 @@
 
 .title {
   font-size: 20px;
-}
-
-.details_link {
   transition: all 0.3s ease;
 }
 
-.details_link:hover {
-  text-decoration: none;
+.title:hover {
   color:#4A3737;
   letter-spacing: 2px;
 }
+
 
 .author {
   font-size: 16px;
@@ -82,3 +79,5 @@
   text-align: justify;
   color: #4f3838;
 }
+
+
