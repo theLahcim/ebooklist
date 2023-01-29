@@ -1,4 +1,4 @@
-﻿using ebooklist.Entieties;
+﻿using ebooklist.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
