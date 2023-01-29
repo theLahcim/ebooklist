@@ -6,7 +6,8 @@
     <title>@ViewData["Title"] - ebooklist</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Devonshire' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya Sans SC' rel='stylesheet'>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -35,8 +36,8 @@
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Books</a>
+                            <li class="nav2-item">
+                                <a class="nav-link" asp-area="" asp-controller="Book" asp-action="Index">Books</a>
                             </li>
                         }
 
