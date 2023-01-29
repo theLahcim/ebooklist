@@ -1,83 +1,30 @@
-﻿@model ebooklist.Entities.Book
+﻿<link rel="stylesheet" href="~/css/details.css" />
+@model ebooklist.Entities.Book
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>Book</h4>
+    <h2>@Html.DisplayFor(model => model.Title)</h2>
+    <h4>@Html.DisplayFor(model => model.Authors)</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ISBN10)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ISBN10)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Subtitle)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Subtitle)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Authors)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Authors)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Categories)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Categories)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Thumbnail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Thumbnail)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Published_year)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Published_year)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Average_rating)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Average_rating)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Num_pages)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Num_pages)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ratings_count)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ratings_count)
-        </dd>
-    </dl>
+    <h6>Genres: @Html.DisplayFor(model => model.Categories)</h6>
+    <hr />
+    <section class="details_container">
+        <div><img src="@Url.Content(Model.Thumbnail)" /></div>
+        <div class="book_info_div">
+            <p class="book_info">Rating: <strong>@Html.DisplayFor(model => model.Average_rating)</strong></p>
+            <p class="book_info">Votes: <strong>@Html.DisplayFor(model => model.Ratings_count)</strong></p>
+            <hr />
+            <p class="book_info">Published: <strong>@Html.DisplayFor(model => model.Published_year)</strong></p>
+            <p class="book_info">Pages: <strong>@Html.DisplayFor(model => model.Num_pages)</strong></p>
+            <p class="book_info">IBSN10: <strong>@Html.DisplayFor(model => model.ISBN10)</strong></p>
+        </div>
+        <div class="grow1 scroller"><p>@Html.DisplayFor(model => model.Description)</p></div>
+    </section>
 </div>
+
 <div>
     @*<a asp-action="Edit" asp-route-id="@Model.ISBN13">Edit</a> |*@
     <a asp-action="Index">Back to List</a>
