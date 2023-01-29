@@ -37,7 +37,7 @@ nav {
   border-bottom: 2px #BEABA5 solid;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Alegreya Sans', sans-serif;
   letter-spacing: 3px;
   color: #645757;
@@ -47,7 +47,7 @@ hr.solid {
   border-top: 2px solid #CEC4C1;
 }
 
-/* Body */
+/* Global selectors settings */
 
 body {
   margin-bottom: 60px;
@@ -65,17 +65,27 @@ a:hover {
 
 .btn-primary {
   color: #fff;
-  background-color: #957461;
-  border-color: #957461;
+  background-color: #8d7466;
+  border-color: #8d7466;
+}
+
+.btn-primary:hover {
+  background-color: #A5B2B7;
+  border-color: #A5B2B7;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color: #fff;
-  background-color: #000;
-  border-color: #000;
+  background-color: #A5B2B7;
+  border-color: #A5B2B7;
 }
 
+p {
+  font-size: 14px;
+  color: #4f3838;
+  letter-spacing: 1px;
+}
 
 html {
   font-size: 14px;
