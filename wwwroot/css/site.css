@@ -1,7 +1,4 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-/* Header */
+﻿/* Header and navigation bar*/
 .navbar-brand {
   font-size: 30px;
   font-family: 'Cinzel Decorative';
@@ -37,7 +34,15 @@ nav {
   border-bottom: 2px #BEABA5 solid;
 }
 
-h1, h2, h3, h4 {
+
+/* Global selectors settings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Alegreya Sans', sans-serif;
   letter-spacing: 3px;
   color: #645757;
@@ -46,8 +51,6 @@ h1, h2, h3, h4 {
 hr.solid {
   border-top: 2px solid #CEC4C1;
 }
-
-/* Body */
 
 body {
   margin-bottom: 60px;
@@ -63,19 +66,55 @@ a:hover {
 
 }
 
+.btn-link {
+  transition: all 0.2s ease;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-color: #A5B2B7;
+  ;
+}
+
+.btn-link:hover {
+  border-color: #8d7466;
+}
+
+.btn-default {
+  padding: 2px 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: #A5B2B7;
+  margin-top: -5px;
+}
+
+.btn-default:hover {
+  color: #645757;
+  background-color: #CEC4C1;
+}
+
 .btn-primary {
   color: #fff;
-  background-color: #957461;
-  border-color: #957461;
+  background-color: #8d7466;
+  border-color: #8d7466;
+}
+
+.btn-primary:hover {
+  background-color: #A5B2B7;
+  border-color: #A5B2B7;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color: #fff;
-  background-color: #000;
-  border-color: #000;
+  background-color: #A5B2B7;
+  border-color: #A5B2B7;
 }
 
+p {
+  font-size: 14px;
+  color: #4f3838;
+  letter-spacing: 1px;
+}
 
 html {
   font-size: 14px;
@@ -110,7 +149,6 @@ button.accept-policy {
   height: 209px;
   margin-top: 20px;
 }
-
 
 
 /* Footer

@@ -1,0 +1,28 @@
+.details_container {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+}
+
+.grow1 {
+    flex-grow: 1;
+}
+
+.scroller {
+    height: 210px;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-color: #A5B2B7 #F9EFEF;
+    scrollbar-width: thin;
+    text-align: justify;
+
+    padding-right: 10px;
+}
+
+.book_info {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 11px;
+    color: #4A3737;
+    line-height: 10px;
+    white-space: nowrap;
+}

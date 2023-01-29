@@ -1,4 +1,5 @@
-﻿@model PaginatedList<ebooklist.Entities.Book>
+﻿<link rel="stylesheet" href="~/css/book.css" />
+@model PaginatedList<ebooklist.Entities.Book>
 
 @{
     ViewData["Title"] = "Book Details";
@@ -6,7 +7,7 @@
 <h3>@ViewData["Title"]</h3>
 <hr />
 <form asp-action="Index" method="get">
-    <div class="form-actions no-color">
+    <div class="form-actions">
         <p>
             Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
             <input type="submit" value="Search" class="btn btn-default" /> |
@@ -15,32 +16,25 @@
     </div>
 </form>
 <form>
-    <table>
-        <thead>
-            <tr>
-                <th>Cover</th>
-                <th>ISBN13</th>
-                <th>Title</th>
-                <th>Authors</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model != null && Model.Any())
-            {
-                @foreach (var book in Model)
-                {
-                    <tr>
-                        <td><img src="@book.Thumbnail"></td>
-                        <td>@book.ISBN13</td>
-                        <td>@book.Title</td>
-                        <td>@book.Authors</td>
-                    <td>@Html.ActionLink("Details", "Details", new { id = book.ISBN13 }) </td>
-                    </tr>
-                }
-            }
-        </tbody>
-    </table>
+
+    @if (Model != null && Model.Any())
+        @foreach (var book in Model)
+        {
+            <section class="content">
+                <div><img class="bookCover" src="@book.Thumbnail" /></div>
+                <div class="book_container">
+                    <div class="book_author_title">
+                        <a href="@Url.Action("Details", "Book", new { id = book.ISBN13 })">
+                            <p class="title">@book.Title</p>
+                        </a>
+                        <p class="author">@book.Authors</p>
+                    </div>
+                    <div class="book_details">Pages: @book.Num_pages | Published: @book.Published_year | Rating: @book.Average_rating</div>
+                    <div class="book_description">@book.Description</div>
+                </div>
+            </section>
+        }
+
 </form>
 
 @{

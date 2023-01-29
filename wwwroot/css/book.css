@@ -19,6 +19,7 @@
     "book_author_title book_details ."
     "book_description book_description .";
   padding: 15px;
+  width: 100%;
 }
 
 .cover_div {
@@ -34,6 +35,12 @@
 
 .title {
   font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.title:hover {
+  color: #4A3737;
+  letter-spacing: 2px;
 }
 
 .author {
@@ -44,11 +51,15 @@
 .book_details {
   grid-area: book_details;
   text-align: end;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #4A3737;
 }
 
 .book_description {
   grid-area: book_description;
-
   display: -webkit-box;
   max-height: 80px;
   -webkit-line-clamp: 5;
@@ -60,11 +71,4 @@
   letter-spacing: 1px;
   text-align: justify;
   color: #4f3838;
-}
-
-.book_details {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: #4A3737;
 }
