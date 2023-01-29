@@ -2,7 +2,6 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 @import url(http://fonts.googleapis.com/css?family=Advent+Pro&subset=latin,latin-ext);
-
 /* Header */
 .navbar-brand {
 font-size: 30px;
@@ -97,6 +96,8 @@ button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
 }
+
+
 
 /* Footer
 -------------------------------------------------- */
