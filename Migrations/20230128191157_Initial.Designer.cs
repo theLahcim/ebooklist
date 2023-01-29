@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ebooklist.Data;
 
-namespace ebooklist.Data.Migrations
+namespace ebooklist.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221218190852_addbook")]
-    partial class addbook
+    [Migration("20230128191157_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -221,39 +221,45 @@ namespace ebooklist.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ebooklist.Entieties.Book", b =>
+            modelBuilder.Entity("ebooklist.Entities.Book", b =>
                 {
-                    b.Property<string>("Shop_url")
+                    b.Property<string>("ISBN13")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Author")
+                    b.Property<string>("Authors")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Cover")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Img_url")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Pages")
-                        .HasColumnType("int");
-
-                    b.Property<float>("Price")
+                    b.Property<float>("Average_rating")
                         .HasColumnType("real");
 
-                    b.Property<string>("Publisher")
+                    b.Property<string>("Categories")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Series")
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ISBN10")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Num_pages")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Published_year")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Ratings_count")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Subtitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Thumbnail")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("Shop_url");
+                    b.HasKey("ISBN13");
 
                     b.ToTable("Book");
                 });

@@ -1,25 +1,28 @@
-﻿@model List<BookViewModel>
+﻿@model PaginatedList<ebooklist.Entities.Book>
 
-@{ 
+@{
     ViewData["Title"] = "Book Details";
 }
 <h3>@ViewData["Title"]</h3>
 <hr />
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
 <form>
-    <button asp-action="Create" asp-controller="Book">Create Book</button>
     <table>
         <thead>
             <tr>
-                <th>Img_url</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Price</th>
-                <th>Publisher</th>
-                <th>Series</th>
-                <th>Year</th>
-                <th>Pages</th>
                 <th>Cover</th>
-                <th>Shop_url</th>
+                <th>ISBN13</th>
+                <th>Title</th>
+                <th>Authors</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -27,20 +30,30 @@
             {
                 @foreach (var book in Model)
                 {
-            <tr>
-                <td><img src="@book.Img_url"></td>
-                <td>@book.Title</td>
-                <td>@book.Author</td>
-                <td>@book.Publisher</td>
-                <td>@book.Year</td>
-                <td>@book.Series</td>
-                <td>@book.Pages</td>
-                <td>@book.Price</td>
-                <td>@book.Cover</td>
-                <td>@book.Shop_url</td>
-            </tr>
+                    <tr>
+                        <td><img src="@book.Thumbnail"></td>
+                        <td>@book.ISBN13</td>
+                        <td>@book.Title</td>
+                        <td>@book.Authors</td>
+                    <td>@Html.ActionLink("Details", "Details", new { id = book.ISBN13 }) </td>
+                    </tr>
                 }
             }
         </tbody>
     </table>
 </form>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

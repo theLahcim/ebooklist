@@ -1,4 +1,5 @@
 ﻿using ebooklist.Data;
+using ebooklist.Entities;
 using ebooklist.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,35 +14,43 @@ namespace ebooklist.Controllers
         private readonly ApplicationDbContext _context;
         public BookController(ApplicationDbContext context)
         {
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
             this._context = context;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? pageNumber, string searchString)
         {
-            var books = _context.Books.ToList();
-            List<BookViewModel> bookList = new List<BookViewModel>();
-
-            if (books != null)
+            ViewData["CurrentFilter"] = searchString;
+            var books = from b in _context.Books
+                        select b;
+            if (!String.IsNullOrEmpty(searchString))
             {
-                foreach(var book in books)
-                {
-                    var BookViewModel = new BookViewModel()
-                    {
-                        Author = book.Author,
-                        Title = book.Title,
-                        Cover = book.Cover,
-                        Pages = book.Pages,
-                        Price = book.Price,
-                        Series = book.Series,
-                        Publisher = book.Publisher,
-                        Year = book.Year,
-                        Shop_url = book.Shop_url,
-                        Img_url = book.Img_url
-                    };
-                    bookList.Add(BookViewModel);
-                }
+                books = books.Where(b => b.Title.Contains(searchString)
+                                       || b.Authors.Contains(searchString));
             }
-            return View(bookList);
+
+            ViewBag.Data = books.ToList().Take(10);
+            int pageSize = 50;
+            return View(await PaginatedList<Book>.CreateAsync(books, pageNumber ?? 1, pageSize));
+        }
+
+        [HttpGet]
+        public IActionResult Details(string id = null)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var book = _context.Books
+                .FirstOrDefault(m => m.ISBN13 == id);
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+            return View(book);
         }
     }
 }
