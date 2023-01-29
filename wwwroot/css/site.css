@@ -1,34 +1,86 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+/* Header */
+.navbar-brand {
+  font-size: 30px;
+  font-family: 'Cinzel Decorative';
+  color: #645757 !important;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
-/* Provide sufficient contrast against white background */
+.topSeparator {
+  height: 30px;
+  background-color: #A5B2B7;
+}
+
+nav {
+  background-color: #F9EFEF !important;
+  padding-bottom: 0 !important;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.nav2-item {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 2px #F9EFEF solid
+}
+
+.nav2-item:hover {
+  border-bottom: 2px #BEABA5 solid;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Alegreya Sans', sans-serif;
+  letter-spacing: 3px;
+  color: #645757;
+}
+
+hr.solid {
+  border-top: 2px solid #CEC4C1;
+}
+
+/* Body */
+
+body {
+  margin-bottom: 60px;
+  background-color: #F9EFEF !important;
+}
+
 a {
-  color: #0366d6;
+  color: #645757;
+}
+
+a:hover {
+  color: #BEABA5;
+
 }
 
 .btn-primary {
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  background-color: #957461;
+  border-color: #957461;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  background-color: #000;
+  border-color: #000;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+
 html {
   font-size: 14px;
 }
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -38,6 +90,7 @@ html {
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
 }
@@ -51,21 +104,29 @@ button.accept-policy {
   line-height: inherit;
 }
 
-/* Sticky footer styles
+.bookCover {
+  border: 20px #F9EFEF solid;
+  width: 140px;
+  height: 209px;
+  margin-top: 20px;
+}
+
+
+
+/* Footer
 -------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
+
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  background-color: #A5B2B7;
+  color: #fff !important;
+  line-height: 60px;
 }
